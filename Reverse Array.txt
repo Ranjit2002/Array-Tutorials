@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Numbers {
+    Scanner sc = new Scanner(System.in);
+    int[][] a = new int[2][3];
+
+    void input() {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                System.out.println("Enter Array Elements:-");
+                a[i][j] = sc.nextInt();
+            }
+        }
+    }
+
+    void print() {
+        System.out.println();
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++)
+                System.out.print(a[i][j] + " ");
+            System.out.println();
+        }
+    }
+
+    void reverse() {
+        int[][] transposed = new int[a[0].length][a.length];
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                transposed[j][i] = a[i][j];
+            }
+        }
+        a = transposed;
+    }
+
+    public static void main(String[] args) {
+        Numbers n = new Numbers();
+        n.input();
+        n.print();
+
+        // Transpose the array (swap rows and columns)
+        n.reverse();
+
+        System.out.println("\nAfter Transpose:");
+        n.print();
+    }
+}
